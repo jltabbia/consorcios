@@ -1,0 +1,12 @@
+Django              
+django-crispy-forms 
+django-heroku       
+mysqlclient         
+pip                 
+setuptools          
+simplejson          
+sqlparse            
+tzdata              
+wheel               
+whitenoise        
+pillow  

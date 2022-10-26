@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block titulo %}
+Expensas
+{% endblock %}
+{% block contenido %}
+<div class="container">
+    <div class="card-header text-center">
+        <p class="h2 b-3 mt-3">Sistema de Gestión de Consorcios</p>
+        <img src="{% static 'img/edificio.png' %}" height="50">
+    </div>
+
+    <div class="card-body">
+        <a class='btn btn-primary btn-sm mb-3 mt-3' href="{% url 'propietarios:crear' %}">Agregar Propietario</a>
+        <table id='propietarios' class="table table-striped table-sm">
+            <thead>
+                <th>Nombre</th><th>Domicilio</th><th>Cant. Dptos.</th><th>Acciones</th>
+            </thead>
+            <tbody>
+                {% for p in propietarios %}
+                <tr>
+                    <td>{{p.nombre}} {{ p.apellido }}</td>
+                    <td>{{p.domicilio}}</td>
+                    <td>{{p.cantidad_dptos}}</td>
+                    <td>
+                        <a class="btn btn-success btn-sm" href="#"><i class='fa fa-edit'></i> Editar</a>
+                        <a class="btn btn-danger btn-sm" href="#"><i class='fa fa-trash'></i> Eliminar</a>
+                        <a class="btn btn-warning btn-sm" href="#"><i class="fa fa-print"></i> Listar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    $(document).ready(function() {
+        $('#propietarios').DataTable();
+    });
+</script>
+{% endblock %}
