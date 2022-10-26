@@ -27,16 +27,27 @@
                 
             {% endif %}
             
-        <form method="post" class="user">
+        <form id='form_login' method="post" action=''>
             {% csrf_token %}
-            <label fro="usuario" style="font:bold;">
+ 
+            <div class='w450' id='username'>
+                {{ form.username|as_crispy_field }}
+            </div>
+
+            <!-- <label fro="usuario" style="font:bold;">
                 Usuario: </label>
-                 <input type="text" name="username" class="form-control-fixed">
+                
+                 <input type="text" name="username" class="form-control-fixed"> -->
                  
             
-            <label for="pass" style="font:bold;">
+             <!--  <label for="pass" style="font:bold;">
                 Contraseña: </label>
-                 <input type="password" name="password" class="form-control-fixed">
+                <input type="password" name="password" class="form-control-fixed"> -->
+
+                <div class='w450' id='username'>
+                {{ form.password|as_crispy_field }}
+                </div>
+                
                 
             <button type="submit" class="btn btn-sm btn-primary">Iniciar sesión</button>
         </form>
